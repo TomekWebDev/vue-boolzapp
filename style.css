@@ -98,3 +98,25 @@
 .last-seen{
     color: #6c7477
 }
+
+.selected-chat-message-area{
+    background-image: url(img/mine.jpg);
+    height: 84%;
+}
+
+.emoji-text-send-bar{
+    background-color: #f3eeea;
+    height: 8%;
+    border-left: 1px solid #dcdcdc;
+}
+
+.message-input-bar{
+    height: 80%;
+    width: 85%;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.message-tool-icon{
+    color: #6b7376;
+}
