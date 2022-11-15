@@ -26,10 +26,6 @@
     height: 80%;
 }
 
-.profile-name{
-    font-weight: 700;
-}
-
 .profile-tool-icon{
     color: #b1b1b1;
 }
@@ -57,20 +53,48 @@
 }
 
 .search-bar-area{
-    background-color: #fafafa;
+    background-color: #fafafaf0;
     height: 5%;
 }
 
 .searchbar{
     width: 98%;
+    border: 1px solid #dcdcdc;
+    border-radius: .2rem;
 }
 
-.chat-preview{
+.chat-container{
     background-color: white;
     height: 20%;
 }
 
-.user-avatar{
+.chat-preview{
+    height: 100%;
+}
+
+.chat-avatar{
     height: 80%;
     border-radius: 50%;
+}
+
+
+.last-message,
+.last-message-time{
+    color: #b9bdc2;
+}
+
+.selected-chat-area{
+    background-color: lightskyblue;
+    height: 100%;
+    width: 65%;
+}
+
+.selected-chat-bar{
+    background-color: #eaeaea;
+    height: 8%;
+    border-left: 1px solid #dcdcdc;
+}
+
+.last-seen{
+    color: #6c7477
 }

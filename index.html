@@ -14,17 +14,25 @@
 </head>
 <body>
 
+    <!-- Root VUE e schermata principale di sfondo -->
+
     <div id="root" class="d-flex justify-content-center align-items-center">
+
+        <!-- Contenitore della web-app -->
 
         <div class="central-app-container d-flex">
 
+            <!-- Sidebar -->
+
             <div class="sidebar d-flex flex-column">
+
+                <!-- Barra profilo utente -->
 
                 <div class="profile-bar d-flex justify-content-between">
 
                     <div class="profile-name-image d-flex align-items-center">
                         <img class="profile-pic mx-2" src="img/avatar_io.jpg" alt="">
-                        <span class="profile-name ms-2">Tom</span>
+                        <span class="profile-name fw-bold ms-2">Tom</span>
                     </div>
 
                     <div class="profile-tools d-flex align-items-center justify-content-between">
@@ -34,6 +42,8 @@
                     </div>
 
                 </div>
+
+                <!-- Barra notifiche desktop -->
 
                 <div class="notis-info-bar d-flex align-items-center">
 
@@ -48,24 +58,60 @@
                         
                 </div>
 
-                <div class="search-bar-area d-flex align-items-center justify-content-center">
+                <!-- Search bar delle chat -->
 
-                    <input class="searchbar" type="text" placeholder="&#xF52A; Cerca contatti">
+                <div class="search-bar-area d-flex align-items-center justify-content-center py-1">
+
+                    <input class="searchbar px-2" type="text" placeholder="&#xF52A;   Cerca contatti">
 
                 </div>
 
-                <div class="chat-preview-container">
+                <!-- Container delle preview delle chat -->
 
-                    <div class="chat-preview d-flex align-items-center">
+                <div class="all-chats-preview">
 
-                        <img class="user-avatar mx-2" src="img/avatar_1.jpg" alt="">
+                    <div class="chat-container d-flex justify-content-between">
 
-                        <div class="last-message">
+                        <div class="chat-preview d-flex align-items-center">
 
+                            <img class="chat-avatar mx-2" src="img/avatar_1.jpg" alt="">
+    
+                            <div>
+                                <div class="contact-name fw-bold">Nome (data.js)</div>
+                                <span class="last-message">Testo prova da prendere dai data.js</span>
+                            </div>
+    
                         </div>
 
-                        
+                        <div class="last-message-time mx-2">
+                            orario
+                        </div>
 
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Container della chat selezionata -->
+
+            <div class="selected-chat-area">
+
+                <div class="selected-chat-bar d-flex justify-content-between">
+
+                    <div class="profile-name-image d-flex align-items-center">
+                        <img class="profile-pic mx-2" src="img/avatar_io.jpg" alt="">
+                        <div>
+                            <span class="profile-name fw-bold ms-2">Tom</span>
+                            <span class="last-seen d-block ms-2">Ultimo accesso (data.js)</span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="profile-tools d-flex align-items-center justify-content-between">
+                        <i class="profile-tool-icon fs-4 mx-2 bi bi-search"></i>
+                        <i class="profile-tool-icon fs-4 mx-2 bi bi bi-paperclip"></i>
+                        <i class="profile-tool-icon fs-4 mx-2 bi bi-three-dots-vertical"></i>
                     </div>
 
                 </div>
