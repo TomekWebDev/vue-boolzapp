@@ -6,7 +6,7 @@
 
 .central-app-container{
     background-color: white;
-    width: 80%;
+    width: 85%;
     height: 95%;
 }
 
@@ -19,4 +19,58 @@
 .profile-bar{
     background-color: #eaeaea;
     height: 8%;
+}
+
+.profile-pic{
+    border-radius: 50%;
+    height: 80%;
+}
+
+.profile-name{
+    font-weight: 700;
+}
+
+.profile-tool-icon{
+    color: #b1b1b1;
+}
+.notis-info-bar{
+    background-color: #91dbfb;
+    height: 10%;
+}
+
+.notis-background{
+    background-color: white;
+    height: 80%;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.bell{
+    color: #91dbfb;
+}
+
+.attiva-notifiche-desktop{
+    color: #637ea5
+}
+.attiva-notifiche-desktop:hover{
+    color: #b1b1b1;
+}
+
+.search-bar-area{
+    background-color: #fafafa;
+    height: 5%;
+}
+
+.searchbar{
+    width: 98%;
+}
+
+.chat-preview{
+    background-color: white;
+    height: 20%;
+}
+
+.user-avatar{
+    height: 80%;
+    border-radius: 50%;
 }
