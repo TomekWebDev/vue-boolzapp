@@ -165,11 +165,12 @@ var app = new Vue (
                     ],
                 }
             ],
-            chatToShow: [],
+            contactIndex:0,
+            
 
         },
         methods: {
-            getLastMessage(element, index){
+            getLastMessageData(element, index){
                 let archivio = element.chatArchive
                 let indexOfLastMessage = archivio.length - 1
 
@@ -177,7 +178,7 @@ var app = new Vue (
                 console.log(indexOfLastMessage);
                 console.log(archivio);
  
-                return archivio[indexOfLastMessage].message
+                return archivio[indexOfLastMessage]
             },
             getTimeOfLastMessage(element, index){
                 let archivio = element.chatArchive
@@ -188,14 +189,13 @@ var app = new Vue (
 
                 return time
             },
-          
-            selectMessages(element){
-                let chatToShow = []
-                let archivio = element.chatArchive
-                for(i = 0; i < archivio.length; i++){
-                    chatToShow.push(archivio[i])
-                }
-                return chatToShow
+            openChat(element,index){
+                return this.contactIndex = index
+            },
+            sliceTheDate(element, index){
+                let date = element.date
+                let time = date.slice(10,16)
+                return time
             }
         },
    

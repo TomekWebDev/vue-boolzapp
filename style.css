@@ -74,7 +74,7 @@
 }
 .chat-container:hover{
     cursor: pointer;
-    
+
 }
 
 .chat-preview{
@@ -115,6 +115,21 @@
 .selected-chat-message-area{
     background-image: url(img/mine.jpg);
     height: 84%;
+}
+
+.received-message,
+.sent-message{
+    max-width: 45%;
+    border-radius: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+
+.received-message{
+    background-color: white;
+}
+.sent-message{
+    background-color: green;
+    
 }
 
 .emoji-text-send-bar{

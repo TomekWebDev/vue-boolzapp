@@ -79,8 +79,8 @@
                             <img class="chat-avatar mx-2" :src="'img/avatar' + element.avatar + '.jpg'" alt="">
     
                             <div>
-                                <div class="contact-name fw-bold">{{element.name}}</div>
-                                <span class="last-message">{{getLastMessage(element, index)}}</span>
+                                <div class="contact-name fw-bold"> {{element.name}} </div>
+                                <span class="last-message"> {{getLastMessageData(element, index).message}} </span>
                             </div>
     
                         </div>
@@ -104,10 +104,10 @@
                 <div class="selected-chat-bar d-flex justify-content-between">
 
                     <div class="profile-name-image d-flex align-items-center">
-                        <img class="profile-pic mx-2" src="img/avatar_io.jpg" alt="">
+                        <img class="profile-pic mx-2" :src="'img/avatar' + contacts[contactIndex].avatar + '.jpg'" alt="">
                         <div>
-                            <span class="profile-name fw-bold ms-2">Nome (js)</span>
-                            <span class="last-seen d-block ms-2">Ultimo accesso (data.js)</span>
+                            <span class="profile-name fw-bold ms-2"> {{contacts[contactIndex].name}} </span>
+                            <span class="last-seen d-block ms-2"> {{ getTimeOfLastMessage(contacts[contactIndex]) }} </span>
                         </div>
                         
                     </div>
@@ -122,12 +122,14 @@
 
                 <!-- Sezione messaggi chat selezionata -->
 
-                <div class="selected-chat-message-area overflow-auto">
+                <div class="selected-chat-message-area overflow-auto d-flex flex-column p-5">
 
-                    <div v-for='contact in contacts'>
-                        <div v-if="" v-for='messageObj in contact.chatArchive'>
-                          {{messageObj.message}}
-                        </div>
+                    <div v-for='(element, index) in contacts[contactIndex].chatArchive' :class="(element.status == 'received') ? 'received-message align-self-start ms-3 p-2' : 'sent-message align-self-end me-3 p-2' " class="d-flex align-items-center justify-content-between">
+                        
+                        <span> {{element.message}} </span>
+                        <!-- mettere la freccina in hover per eliminare i messaggi -->
+                        <span class="last-message-time mx-2"> {{sliceTheDate(element, index)}} </span>
+
                     </div>
 
 
