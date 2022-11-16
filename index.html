@@ -62,7 +62,7 @@
 
                 <div class="search-bar-area d-flex align-items-center justify-content-center py-1">
 
-                    <input class="searchbar px-2" type="text" placeholder="&#xF52A;   Cerca contatti">
+                    <input class="searchbar px-2" type="text" placeholder="&#xF52A;   Cerca contatti" v-on:keyup="contactSearch()" v-model="contactSearchText">
 
                 </div>
 
@@ -141,7 +141,7 @@
 
                     <span class="message-tool-icon fs-4 mx-2"><i class="bi bi-emoji-smile"></i></span>
 
-                    <input class="message-input-bar" type="text" placeholder="  Scrivi un messaggio">
+                    <input v-model="messageText" v-on:keyup.enter="sendMessage(contacts[contactIndex].chatArchive)" class="message-input-bar" type="text" placeholder="  Scrivi un messaggio">
 
                     <span class="message-tool-icon fs-4 mx-2"><i class="bi bi-mic-fill"></i></span>
 

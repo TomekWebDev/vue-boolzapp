@@ -166,7 +166,8 @@ var app = new Vue (
                 }
             ],
             contactIndex:0,
-            
+            messageText:'',
+            contactSearchText:''
 
         },
         methods: {
@@ -196,9 +197,49 @@ var app = new Vue (
                 let date = element.date
                 let time = date.slice(10,16)
                 return time
-            }
+            },
+            sendMessage(element){
+                if(this.messageText != ''){
+                    element.push({
+                        date: '10/01/2020 15:51:00',
+                        message: this.messageText,
+                        status: "sent",
+                    });
+                    this.autoReply(element)
+                } else{
+                    
+                }
+                this.messageText = ''
+            },
+            autoReply(element){
+                setTimeout(function(){
+                    element.push({
+                        date: '10/01/2020 15:51:00',
+                        message: 'Ok',
+                        status: "received",
+                    })
+                },3000)
+            },
+            contactSearch() {
+                let contatti = this.contacts
+                contatti.forEach((element, index) => {
+                  if (this.contactSearchText == "") {
+                    this.contacts[index].visible = true;
+                  } else {
+                    if (
+                      element.name.includes(this.contactSearchText) ||
+                      element.name.toLowerCase().includes(this.contactSearchText) ||
+                      element.name.toUpperCase().includes(this.contactSearchText)
+                    ) {
+                      element.visible = true;
+                    } else {
+                      element.visible = false;
+                    }
+                  }
+                });
+              },
         },
-   
+        
         
     }
 )
