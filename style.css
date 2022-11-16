@@ -11,7 +11,7 @@
 }
 
 .sidebar{
-    background-color: lightseagreen;
+    background-color: white;
     height: 100%;
     width: 35%;
 }
@@ -63,9 +63,18 @@
     border-radius: .2rem;
 }
 
+.all-chats-preview{
+    height: 77%;
+}
+
 .chat-container{
     background-color: white;
-    height: 20%;
+    height: 13%;
+    border-bottom: 1px solid #dcdcdc;
+}
+.chat-container:hover{
+    cursor: pointer;
+    
 }
 
 .chat-preview{
@@ -81,6 +90,10 @@
 .last-message,
 .last-message-time{
     color: #b9bdc2;
+}
+
+.last-message-time{
+    font-size: small;
 }
 
 .selected-chat-area{

@@ -68,23 +68,25 @@
 
                 <!-- Container delle preview delle chat -->
 
-                <div class="all-chats-preview">
+                <div class="all-chats-preview overflow-auto">
 
-                    <div class="chat-container d-flex justify-content-between">
+                    <!-- Chat singola -->
+
+                    <div @click="openChat(element, index)" v-for="(element, index) in contacts" class="chat-container d-flex justify-content-between">
 
                         <div class="chat-preview d-flex align-items-center">
 
-                            <img class="chat-avatar mx-2" src="img/avatar_1.jpg" alt="">
+                            <img class="chat-avatar mx-2" :src="'img/avatar' + element.avatar + '.jpg'" alt="">
     
                             <div>
-                                <div class="contact-name fw-bold">Nome (data.js)</div>
-                                <span class="last-message">Testo prova da prendere dai data.js</span>
+                                <div class="contact-name fw-bold">{{element.name}}</div>
+                                <span class="last-message">{{getLastMessage(element, index)}}</span>
                             </div>
     
                         </div>
 
-                        <div class="last-message-time mx-2">
-                            orario
+                        <div class="last-message-time mx-3">
+                            <span> {{getTimeOfLastMessage(element, index)}} </span>
                         </div>
 
                     </div>
@@ -120,7 +122,14 @@
 
                 <!-- Sezione messaggi chat selezionata -->
 
-                <div class="selected-chat-message-area">
+                <div class="selected-chat-message-area overflow-auto">
+
+                    <div v-for='contact in contacts'>
+                        <div v-if="" v-for='messageObj in contact.chatArchive'>
+                          {{messageObj.message}}
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -133,8 +142,6 @@
                     <input class="message-input-bar" type="text" placeholder="  Scrivi un messaggio">
 
                     <span class="message-tool-icon fs-4 mx-2"><i class="bi bi-mic-fill"></i></span>
-
-                    
 
                 </div>
 
