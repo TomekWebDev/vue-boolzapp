@@ -174,10 +174,6 @@ var app = new Vue (
             getLastMessageData(element, index){
                 let archivio = element.chatArchive
                 let indexOfLastMessage = archivio.length - 1
-
-                console.log(archivio[indexOfLastMessage].message);
-                console.log(indexOfLastMessage);
-                console.log(archivio);
  
                 return archivio[indexOfLastMessage]
             },
@@ -185,41 +181,41 @@ var app = new Vue (
                 let archivio = element.chatArchive
                 let indexOfLastMessage = archivio.length - 1
 
-                let date = archivio[indexOfLastMessage].date
-                let time = date.slice(10,16)
+                let date = archivio[indexOfLastMessage]?.date
+                let time = date?.slice(10,16)
 
                 return time
             },
+            // AKA editContactIndex
             openChat(element,index){
                 return this.contactIndex = index
             },
             sliceTheDate(element, index){
-                let date = element.date
-                let time = date.slice(10,16)
+                let date = element?.date
+                let time = date?.slice(10,16)
                 return time
             },
             sendMessage(element){
                 if(this.messageText != ''){
                     element.push({
-                        date: '10/01/2020 15:51:00',
+                        date: this.getCurrentDateTime(),
                         message: this.messageText,
                         status: "sent",
                     });
-                    this.autoReply(element)
+                    let dataProva = this.getCurrentDateTime()
+                    setTimeout(function(){
+                        element.push({
+                            date: dataProva,
+                            message: 'Ok',
+                            status: "received",
+                        })
+                    },3000)
                 } else{
                     
                 }
                 this.messageText = ''
             },
-            autoReply(element){
-                setTimeout(function(){
-                    element.push({
-                        date: '10/01/2020 15:51:00',
-                        message: 'Ok',
-                        status: "received",
-                    })
-                },3000)
-            },
+
             contactSearch() {
                 let contatti = this.contacts
                 
@@ -238,6 +234,21 @@ var app = new Vue (
                     }
                 });
               },
+              getCurrentDateTime(){
+                let newDate = new Date()
+                let currentDate = newDate.toLocaleDateString()
+                let currentTime = newDate.toLocaleTimeString()
+                let currentDateTime = currentDate + ' ' + currentTime
+                return currentDateTime
+              },
+              deleteMessage(parametro, index){
+                if(parametro.length < 1){
+                    parametro.splice(0,1)
+                }
+                parametro.splice(index, 1)
+            }
+              
+              
         },
         
         

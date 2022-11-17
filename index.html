@@ -80,7 +80,7 @@
     
                             <div>
                                 <div class="contact-name fw-bold"> {{element.name}} </div>
-                                <span class="last-message"> {{getLastMessageData(element, index).message}} </span>
+                                <span class="last-message"> {{getLastMessageData(element, index)?.message}} </span>
                             </div>
     
                         </div>
@@ -124,11 +124,29 @@
 
                 <div class="selected-chat-message-area overflow-auto d-flex flex-column p-5">
 
-                    <div v-for='(element, index) in contacts[contactIndex].chatArchive' :class="(element.status == 'received') ? 'received-message align-self-start ms-3 px-2 py-1' : 'sent-message align-self-end me-3 px-2 py-1' " class="d-flex align-items-center justify-content-between">
+                    <div v-for='(element, index) in contacts[contactIndex].chatArchive' 
+                         :class="(element.status == 'received') ? 'received-message align-self-start ms-3' : 'sent-message align-self-end me-3' " 
+                         class="d-flex align-items-center justify-content-between px-2 py-1">
                         
                         <span class="me-2"> {{element.message}} </span>
-                        <!-- mettere la freccina in hover per eliminare i messaggi -->
-                        <span class="last-message-time mx-2 align-self-end"> {{sliceTheDate(element, index)}} </span>
+                        
+                        <div class="mx-2 d-flex flex-column">
+                            <div class="dropdown">
+                                <span class="message-options d-block text-end" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class=" bi bi-chevron-down"></i></span>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Rispondi</a></li>
+                                    <li><a class="dropdown-item" href="#">Reagisci al messaggio</a></li>
+                                    <li><a class="dropdown-item" href="#">Inoltra messaggio</a></li>
+                                    <li><a class="dropdown-item" href="#">Modifica etichetta</a></li>
+                                    <li><a class="dropdown-item" href="#">Messaggio importante</a></li>
+                                    <li><a class="dropdown-item" href="#">Segnala</a></li>
+                                    <li><a @click="deleteMessage(contacts[contactIndex].chatArchive, index)" class="dropdown-item" href="#">Elimina messaggio</a></li>
+                                  </ul>
+                            </div>
+                            
+                            <span class="last-message-time align-self-end"> {{sliceTheDate(element, index)}} </span>
+
+                        </div>
 
                     </div>
 

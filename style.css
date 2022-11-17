@@ -88,7 +88,8 @@
 
 
 .last-message,
-.last-message-time{
+.last-message-time,
+.message-options{
     color: #b9bdc2;
 }
 
@@ -130,6 +131,11 @@
 .sent-message{
     background-color: #d6f8bd;
     
+}
+
+.message-options{
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .emoji-text-send-bar{
