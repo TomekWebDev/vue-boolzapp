@@ -93,7 +93,7 @@
 }
 
 .last-message-time{
-    font-size: small;
+    font-size: 0.7rem;
 }
 
 .selected-chat-area{
@@ -125,10 +125,10 @@
 }
 
 .received-message{
-    background-color: white;
+    background-color: #ffffff;
 }
 .sent-message{
-    background-color: green;
+    background-color: #d6f8bd;
     
 }
 

@@ -220,7 +220,25 @@ var app = new Vue (
                     })
                 },3000)
             },
-            
+            contactSearch() {
+                let contatti = this.contacts
+                
+                contatti.forEach((element, index) => {
+                  if (this.contactSearchText == "") {
+                    contatti[index].visible = true;
+                  } 
+                  else {
+                        let nome = contatti[index].name
+                        if ( nome.includes(this.contactSearchText) ||  nome.toLowerCase().includes(this.contactSearchText) ||  nome.toUpperCase().includes(this.contactSearchText)) {
+                        contatti[index].visible = true;
+                        } 
+                        else {
+                            contatti[index].visible = false;
+                        }
+                    }
+                });
+              },
+        },
         
         
     }
